@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Profile; // 追記
 
 class User extends Authenticatable
 {
@@ -37,11 +36,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
-    // Profileモデルと1対1のリレーションを張る
-    public function profile()
-    {
-        // Profileモデルのデータを引っ張てくる
-        return $this->hasOne(Profile::class);
-    }
 }
